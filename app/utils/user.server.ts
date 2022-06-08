@@ -36,3 +36,12 @@ export const getOtherUsers = async (userId: string) => {
     return user
   })
 }
+
+export const getUserById = async (userId: string) => {
+  let userFromDb = await prisma.user.findUnique({
+    where: { id: userId }
+  })
+  // @ts-ignore
+  delete userFromDb.password
+  return userFromDb
+}

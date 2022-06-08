@@ -56,7 +56,7 @@ enum Color {
 }
 
 type KudoStyle {
-  backgroundCOlor Color @default(YELLOW)
+  backgroundColor Color @default(YELLOW)
   textColor Color @default(WHITE)
   emoji Emoji @default(THUMBSUP)
 }
