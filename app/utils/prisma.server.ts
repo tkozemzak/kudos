@@ -1,3 +1,4 @@
+//creates prisma client for server utilities to connect to
 import { PrismaClient } from "@prisma/client";
 
 let prisma: PrismaClient

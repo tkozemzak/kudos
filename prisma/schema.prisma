@@ -18,7 +18,7 @@ model User {
   password String
   profile Profile
 }
-
+//additional type to concatenate to User model
 type Profile {
   firstName String
   lastName String
