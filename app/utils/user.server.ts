@@ -16,3 +16,23 @@ export const createUser = async (user: RegisterForm) => {
   });
   return { id: newUser.id, email: user.email };
 };
+
+export const getOtherUsers = async (userId: string) => {
+  //grab all other users from db
+  let usersFromDb = await prisma.user.findMany({
+    where: {
+      id: {not: userId},
+    },
+    orderBy: {
+      profile: {
+        firstName: 'asc',
+      }
+    }
+  })
+//delete hashed password from user object
+  return usersFromDb.map((user) => {
+    // @ts-ignore
+    delete user.password
+    return user
+  })
+}
